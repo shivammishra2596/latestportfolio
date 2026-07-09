@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The FDE Field Guide — Resources to Become a Forward Deployed Engineer</title>
+<meta name="description" content="A curated, interactive catalog of the best essays, videos, courses, and tools to become a Forward Deployed Engineer (FDE) — from understanding the role to landing the job.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232DD4BF'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='11' font-weight='700' fill='%2307121B' text-anchor='middle'%3EFDE%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0E14;
+  --bg-2:#111521;
+  --bg-3:#171C2B;
+  --ink:#EDF0F7;
+  --ink-soft:#B6BECF;
+  --muted:#7C86A0;
+  --line:#232A3D;
+  --line-2:#2E3750;
+  --teal:#2DD4BF;
+  --blue:#5B8CFF;
+  --violet:#A78BFA;
+  --amber:#FBBF24;
+  --rose:#FB7185;
+  --grad:linear-gradient(90deg,#2DD4BF,#5B8CFF,#A78BFA);
+  --r:14px;
+  --max:1180px;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+::selection{background:#2DD4BF;color:#06281F}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.12;letter-spacing:-.02em}
+.mono{font-family:'JetBrains Mono',monospace}
+a{color:inherit}
+button{font-family:inherit;cursor:pointer}
+
+/* ---------- background grid ---------- */
+.bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(700px 340px at 82% -60px, rgba(91,140,255,.13), transparent 65%),
+    radial-gradient(600px 320px at 8% -40px, rgba(45,212,191,.11), transparent 65%),
+    radial-gradient(700px 500px at 50% 110%, rgba(167,139,250,.07), transparent 60%);
+}
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(124,134,160,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(124,134,160,.055) 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:linear-gradient(#000 0%,transparent 70%);
+  -webkit-mask-image:linear-gradient(#000 0%,transparent 70%);
+}
+.root{position:relative;z-index:1}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:100;background:rgba(11,14,20,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:62px;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.98rem;text-decoration:none}
+.logo .mk{width:28px;height:28px;border-radius:8px;background:var(--grad);display:inline-flex;align-items:center;justify-content:center;color:#07121B;font-size:.68rem;font-weight:700;font-family:'JetBrains Mono',monospace}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{display:block;padding:8px 13px;font-size:.82rem;font-weight:500;color:var(--muted);text-decoration:none;border-radius:8px;transition:.2s}
+.nav-links a:hover{color:var(--ink);background:var(--bg-3)}
+.progress-pill{display:flex;align-items:center;gap:9px;border:1px solid var(--line-2);border-radius:999px;padding:6px 14px;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--ink-soft);background:var(--bg-2)}
+.progress-pill .bar{width:74px;height:5px;border-radius:3px;background:var(--line);overflow:hidden}
+.progress-pill .bar i{display:block;height:100%;width:0;background:var(--grad);border-radius:3px;transition:width .5s}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+header.hero{max-width:var(--max);margin:0 auto;padding:88px 24px 40px}
+.hero-tag{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line-2);border-radius:999px;padding:7px 16px;font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.14em;color:var(--ink-soft);background:var(--bg-2);margin-bottom:28px;text-transform:uppercase}
+.hero-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px rgba(45,212,191,.18);animation:pulse 2.4s infinite}
+@keyframes pulse{50%{opacity:.35}}
+h1{font-size:clamp(2.3rem,5.6vw,4.2rem);font-weight:700;max-width:900px}
+h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{margin-top:22px;max-width:640px;color:var(--muted);font-size:1.06rem}
+.hero-stats{display:flex;gap:34px;margin-top:44px;flex-wrap:wrap}
+.hstat .v{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.7rem}
+.hstat .v span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hstat .l{font-size:.76rem;color:var(--muted);margin-top:2px}
+
+/* ---------- roadmap ---------- */
+#path{max-width:var(--max);margin:0 auto;padding:56px 24px 20px}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.eyebrow::before{content:"";width:28px;height:2px;border-radius:2px;background:var(--grad)}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;margin-bottom:10px}
+.lede{color:var(--muted);max-width:640px;font-size:.98rem}
+.path-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:36px}
+.path-step{
+  position:relative;border:1px solid var(--line);border-radius:var(--r);padding:22px 18px 18px;background:var(--bg-2);
+  text-align:left;transition:transform .25s,border-color .25s,box-shadow .25s;color:var(--ink);
+}
+.path-step:hover{transform:translateY(-4px);border-color:var(--ac);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.path-step .n{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.14em;color:var(--ac);margin-bottom:10px;display:block}
+.path-step h3{font-size:.98rem;font-weight:600;margin-bottom:7px}
+.path-step p{font-size:.78rem;color:var(--muted);line-height:1.55}
+.path-step .go{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--ac);display:inline-flex;align-items:center;gap:6px}
+.path-step .go::after{content:"→";transition:transform .25s}
+.path-step:hover .go::after{transform:translateX(4px)}
+@media(max-width:1020px){.path-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.path-grid{grid-template-columns:1fr}}
+
+/* ---------- catalog controls ---------- */
+#catalog{max-width:var(--max);margin:0 auto;padding:56px 24px 30px}
+.controls{position:sticky;top:62px;z-index:50;background:rgba(11,14,20,.9);backdrop-filter:blur(14px);padding:16px 0 14px;margin-top:26px;border-bottom:1px solid var(--line)}
+.search-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.search-box{flex:1;min-width:230px;position:relative}
+.search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round}
+.search-box input{
+  width:100%;background:var(--bg-2);border:1px solid var(--line-2);border-radius:11px;color:var(--ink);
+  padding:11px 84px 11px 40px;font-family:'Inter',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s,box-shadow .2s;
+}
+.search-box input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(45,212,191,.12)}
+.search-box input::placeholder{color:var(--muted)}
+.search-box .kbd{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--muted);border:1px solid var(--line-2);border-radius:6px;padding:2px 7px;background:var(--bg-3)}
+.seg{display:flex;gap:4px;border:1px solid var(--line-2);border-radius:11px;padding:4px;background:var(--bg-2)}
+.seg button{
+  border:none;background:transparent;color:var(--muted);font-size:.76rem;font-weight:500;
+  padding:7px 13px;border-radius:8px;transition:.2s;display:flex;align-items:center;gap:7px;
+}
+.seg button:hover{color:var(--ink)}
+.seg button.on{background:var(--bg-3);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-2)}
+.seg button .cnt{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--muted)}
+.cat-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.cat-chip{
+  border:1px solid var(--line-2);background:var(--bg-2);color:var(--ink-soft);border-radius:999px;
+  padding:7px 15px;font-size:.78rem;font-weight:500;transition:.2s;display:flex;align-items:center;gap:8px;
+}
+.cat-chip .cnt{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--muted)}
+.cat-chip:hover{border-color:var(--ac,var(--teal));color:var(--ink)}
+.cat-chip.on{background:var(--ac,var(--teal));border-color:var(--ac,var(--teal));color:#07121B;font-weight:600}
+.cat-chip.on .cnt{color:rgba(7,18,27,.6)}
+.results-meta{display:flex;align-items:center;justify-content:space-between;margin:20px 0 4px;flex-wrap:wrap;gap:10px}
+.results-meta .count{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted);letter-spacing:.08em}
+.results-meta .count b{color:var(--teal);font-weight:500}
+.clear-btn{border:none;background:none;color:var(--muted);font-size:.74rem;text-decoration:underline;text-underline-offset:3px}
+.clear-btn:hover{color:var(--rose)}
+
+/* ---------- cards ---------- */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+@media(max-width:1020px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.card{
+  position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);
+  background:var(--bg-2);padding:22px 20px 18px;transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.card:hover{transform:translateY(-4px);border-color:var(--ac);box-shadow:0 12px 34px rgba(0,0,0,.4)}
+.card .top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:12px}
+.badges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;border-radius:6px;padding:3px 8px;font-weight:500}
+.badge.type{color:var(--ac);background:color-mix(in srgb,var(--ac) 12%, transparent);border:1px solid color-mix(in srgb,var(--ac) 30%, transparent)}
+.badge.must{color:#0B0E14;background:var(--amber);border:1px solid var(--amber)}
+.badge.lvl{color:var(--muted);border:1px solid var(--line-2);background:var(--bg-3)}
+.card-actions{display:flex;gap:6px}
+.icon-btn{
+  width:30px;height:30px;border-radius:8px;border:1px solid var(--line-2);background:var(--bg-3);
+  display:inline-flex;align-items:center;justify-content:center;transition:.2s;flex:none;
+}
+.icon-btn svg{width:14px;height:14px;fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:.2s}
+.icon-btn:hover{border-color:var(--teal)}
+.icon-btn:hover svg{stroke:var(--teal)}
+.icon-btn.save.act{border-color:var(--amber);background:rgba(251,191,36,.12)}
+.icon-btn.save.act svg{stroke:var(--amber);fill:var(--amber)}
+.icon-btn.done.act{border-color:var(--teal);background:rgba(45,212,191,.12)}
+.icon-btn.done.act svg{stroke:var(--teal)}
+.card h3{font-size:1.02rem;font-weight:600;margin-bottom:4px}
+.card h3 a{text-decoration:none;transition:color .2s}
+.card h3 a:hover{color:var(--ac)}
+.card h3 a::after{content:"";position:absolute;inset:0}
+.card .src{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--ac);margin-bottom:10px;letter-spacing:.05em}
+.card p{font-size:.84rem;color:var(--muted);flex:1}
+.card .foot{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:13px;border-top:1px solid var(--line)}
+.card .time{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--muted)}
+.card .open{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--ac);display:flex;align-items:center;gap:5px}
+.card .open::after{content:"↗"}
+.card.is-done{opacity:.55}
+.card.is-done h3{text-decoration:line-through;text-decoration-color:var(--muted)}
+.card-actions,.icon-btn{position:relative;z-index:2}
+.empty{
+  grid-column:1/-1;text-align:center;border:1px dashed var(--line-2);border-radius:var(--r);
+  padding:60px 20px;color:var(--muted);font-size:.9rem;
+}
+.empty .big{font-size:1.6rem;margin-bottom:8px;display:block}
+
+/* ---------- companies strip ---------- */
+#companies{max-width:var(--max);margin:0 auto;padding:64px 24px}
+.co-grid{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.co{
+  font-size:.8rem;font-weight:500;color:var(--ink-soft);border:1px solid var(--line-2);
+  border-radius:10px;padding:9px 16px;background:var(--bg-2);text-decoration:none;transition:.2s;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.co:hover{border-color:var(--blue);color:var(--ink);transform:translateY(-2px)}
+.co .d{width:6px;height:6px;border-radius:50%;background:var(--blue)}
+
+/* ---------- FAQ ---------- */
+#faq{max-width:var(--max);margin:0 auto;padding:20px 24px 70px}
+.faq-list{margin-top:28px;display:grid;gap:10px;max-width:820px}
+details{border:1px solid var(--line);border-radius:12px;background:var(--bg-2);overflow:hidden}
+details summary{
+  list-style:none;cursor:pointer;padding:17px 20px;font-weight:600;font-size:.92rem;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;transition:background .2s;
+}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";font-family:'JetBrains Mono',monospace;color:var(--teal);font-size:1rem;transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details summary:hover{background:var(--bg-3)}
+details .a{padding:0 20px 18px;color:var(--muted);font-size:.86rem;max-width:700px}
+details .a a{color:var(--teal);text-underline-offset:3px}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:30px 24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--muted);letter-spacing:.1em;line-height:2}
+footer a{color:var(--ink-soft);text-decoration:none}
+footer a:hover{color:var(--teal)}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="bg-fx"></div>
+<div class="bg-grid"></div>
+<div class="root">
+
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="#top"><span class="mk">FDE</span>Field Guide</a>
+    <ul class="nav-links">
+      <li><a href="#path">Roadmap</a></li>
+      <li><a href="#catalog">Catalog</a></li>
+      <li><a href="#companies">Who's Hiring</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="progress-pill" title="Resources you've marked as done">
+      <span id="progText">0/0 done</span>
+      <span class="bar"><i id="progBar"></i></span>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-tag"><span class="dot"></span> Curated · Interactive · No fluff</div>
+  <h1>Everything you need to become a <span class="g">Forward Deployed Engineer</span>.</h1>
+  <p class="hero-sub">The FDE — pioneered at Palantir, now the hottest role at AI startups — ships production code inside a customer's world. This is a hand-picked catalog of the essays, videos, courses, and tools that actually matter, organized as a path from "what is this role?" to a signed offer. Search it, filter it, and track your progress as you go.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="v"><span id="statTotal">0</span></div><div class="l">Curated resources</div></div>
+    <div class="hstat"><div class="v"><span>6</span></div><div class="l">Stages of the path</div></div>
+    <div class="hstat"><div class="v"><span id="statMust">0</span></div><div class="l">Must-reads</div></div>
+    <div class="hstat"><div class="v"><span>100%</span></div><div class="l">Free to browse</div></div>
+  </div>
+</header>
+
+<section id="path">
+  <div class="eyebrow">The roadmap</div>
+  <h2 class="reveal">Six stages. Click one to jump into its resources.</h2>
+  <p class="lede reveal">FDE hiring rewards breadth with proof: understand the role deeply, build the engineering and AI foundations, learn to sit with customers, then run the interview loop. Each stage below filters the catalog.</p>
+  <div class="path-grid reveal" id="pathGrid"></div>
+</section>
+
+<section id="catalog">
+  <div class="eyebrow">The catalog</div>
+  <h2>Every resource, one place.</h2>
+  <p class="lede">Type to search titles, sources, and topics. Star resources to build your reading list; check them off as you finish. Everything is saved locally in your browser.</p>
+
+  <div class="controls">
+    <div class="search-row">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input id="search" type="search" placeholder="Search — try 'palantir', 'RAG', 'interview', 'sql'…" autocomplete="off">
+        <span class="kbd">/</span>
+      </div>
+      <div class="seg" id="viewSeg">
+        <button data-view="all" class="on">All</button>
+        <button data-view="must">★ Must-reads</button>
+        <button data-view="saved">Saved <span class="cnt" id="savedCnt">0</span></button>
+        <button data-view="todo">To do</button>
+      </div>
+    </div>
+    <div class="cat-row" id="catRow"></div>
+    <div class="results-meta">
+      <span class="count" id="resultCount"></span>
+      <button class="clear-btn" id="clearBtn" hidden>Reset all filters</button>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="companies">
+  <div class="eyebrow">Who's hiring</div>
+  <h2 class="reveal">Companies known for FDE (and FDE-shaped) roles.</h2>
+  <p class="lede reveal">Titles vary — "Forward Deployed Engineer", "Deployed Engineer", "Applied AI Engineer", "Agent Engineer", "Member of Technical Staff (Deployed)". Search broadly; each link goes to the careers page.</p>
+  <div class="co-grid reveal" id="coGrid"></div>
+</section>
+
+<section id="faq">
+  <div class="eyebrow">FAQ</div>
+  <h2 class="reveal">Quick answers.</h2>
+  <div class="faq-list reveal">
+    <details>
+      <summary>What exactly does a Forward Deployed Engineer do?</summary>
+      <div class="a">An FDE embeds with a customer and writes real production code to close the gap between what a product does and what that customer needs — data integration, workflow automation, AI pipelines, custom apps. Unlike a solutions engineer, the output is working software, and unlike a consultant, the learnings flow back into the core product. Start with <a href="https://newsletter.pragmaticengineer.com/p/forward-deployed-engineers" target="_blank" rel="noopener">The Pragmatic Engineer's deep dive</a>.</div>
+    </details>
+    <details>
+      <summary>How is it different from a Solutions Engineer or Solutions Architect?</summary>
+      <div class="a">Solutions engineers demo and configure; FDEs build. FDEs are held to a software engineering bar (system design, production code, on-call for what they ship) while also owning customer discovery and outcomes. If a role never has you writing code that ships, it's a sales-engineering rebrand — several guides in the catalog show how to tell the difference.</div>
+    </details>
+    <details>
+      <summary>What's the skill stack in practice?</summary>
+      <div class="a">Python and strong SQL are the baseline, plus APIs and cloud (AWS/GCP/Azure, Docker). For AI-focused FDE roles add LLM app patterns: RAG pipelines, tool calling, agent orchestration, and — increasingly the differentiator — evals and observability. On top of that: decomposition of ambiguous problems and clear communication with non-technical stakeholders.</div>
+    </details>
+    <details>
+      <summary>What does the interview loop look like?</summary>
+      <div class="a">Typically: practical coding (less LeetCode, more "build this integration"), a system/architecture round, a decomposition case study ("a hospital wants to reduce ER wait times — go"), and customer-facing behavioral rounds. Palantir's famous "Decomp" interview set the template. The Interview Prep stage of the catalog covers all of it.</div>
+    </details>
+    <details>
+      <summary>How do I break in without prior FDE experience?</summary>
+      <div class="a">Build proof: a portfolio project that automates a real business workflow end-to-end (integrations, evals, logging, a short deployment memo) is worth more than any certificate. Backgrounds that convert well: startup full-stack engineers, data/ML engineers with production experience, and solutions architects who already write code. Volunteer for customer-facing work wherever you are now.</div>
+    </details>
+  </div>
+</section>
+
+<footer>
+  THE FDE FIELD GUIDE · A CURATED CATALOG, NOT AN AFFILIATE FARM<br>
+  ALL LINKS GO DIRECTLY TO THE ORIGINAL AUTHORS AND PLATFORMS · YOUR PROGRESS IS STORED ONLY IN YOUR BROWSER
+</footer>
+</div>
+
+<script>
+/* =============== DATA =============== */
+const CATS = [
+  {id:'understand', name:'Understand the Role',  ac:'#2DD4BF', blurb:'What FDEs actually do, where the model came from, and whether it fits you.'},
+  {id:'skills',     name:'Engineering Core',     ac:'#5B8CFF', blurb:'The non-negotiables: Python, SQL, APIs, systems, and shipping.'},
+  {id:'ai',         name:'AI & LLM Stack',       ac:'#A78BFA', blurb:'RAG, agents, evals — the 2026 FDE differentiators.'},
+  {id:'customer',   name:'Customer Craft',       ac:'#FBBF24', blurb:'Discovery, trust, and negotiation — the half engineers skip.'},
+  {id:'interview',  name:'Interview Prep',       ac:'#FB7185', blurb:'Decomposition cases, practical coding, and behavioral loops.'},
+  {id:'jobs',       name:'Jobs & Market',        ac:'#60A5FA', blurb:'Where the roles are, what they pay, and how to search.'},
+];
+
+const R = [
+/* -------- Understand the Role -------- */
+{cat:'understand', type:'Essay', level:'Start here', time:'30 min read', must:true,
+ title:'What are Forward Deployed Engineers, and why are they so in demand?',
+ src:'The Pragmatic Engineer · Gergely Orosz',
+ url:'https://newsletter.pragmaticengineer.com/p/forward-deployed-engineers',
+ desc:'The definitive industry deep-dive: the role\u2019s Palantir origins, day-to-day reality, why AI startups are hiring FDEs in droves, and honest trade-offs. If you read one thing, read this.',
+ tags:['overview','palantir','history','ai startups']},
+{cat:'understand', type:'Essay', level:'Start here', time:'45 min read', must:true,
+ title:'Reflections on Palantir',
+ src:'Nabeel S. Qureshi',
+ url:'https://nabeelqu.co/reflections-on-palantir',
+ desc:'An 8-year Palantir FDE\u2019s retrospective — the single best insider account of forward-deployed culture: autonomy, "bat-signals", working in secretive customer environments, and what the job does to you.',
+ tags:['palantir','culture','insider','career']},
+{cat:'understand', type:'Video', level:'Start here', time:'51 min watch', must:true,
+ title:'The FDE Playbook for AI Startups (with Bob McGrew)',
+ src:'Y Combinator · The Lightcone',
+ url:'https://www.youtube.com/watch?v=Zyw-YA0k3xo',
+ desc:'Bob McGrew (early Palantir exec, ex-OpenAI Chief Research Officer) explains how the FDE model was invented, why it\u2019s now the dominant playbook for AI agent startups, and what "doing things that don\u2019t scale, at scale" means.',
+ tags:['video','yc','strategy','ai startups','palantir']},
+{cat:'understand', type:'Article', level:'Beginner', time:'12 min read', must:false,
+ title:'A Day in the Life of a Palantir Forward Deployed Software Engineer',
+ src:'Palantir Blog',
+ url:'https://blog.palantir.com/a-day-in-the-life-of-a-palantir-forward-deployed-software-engineer-45ef2de257b1',
+ desc:'Straight from the source: an FDSE working with a US Department of Defense customer walks through a typical day — the split between coding, configuring, and customer time.',
+ tags:['palantir','day in the life','defense']},
+{cat:'understand', type:'Article', level:'Beginner', time:'10 min read', must:false,
+ title:'WTF is a forward deployed engineer? (and why everyone is hiring them)',
+ src:'PostHog',
+ url:'https://posthog.com/blog/forward-deployed-engineer',
+ desc:'A candid, funny explainer of the role plus a case study of why a product company hired its first FDE — good for seeing how the model adapts outside Palantir.',
+ tags:['overview','startup','product engineering']},
+{cat:'understand', type:'Guide', level:'Beginner', time:'20 min read', must:false,
+ title:'What Is a Forward Deployed Engineer? Complete Guide',
+ src:'Exponent',
+ url:'https://www.tryexponent.com/blog/what-is-a-forward-deployed-engineer',
+ desc:'Structured breakdown of day-to-day work, the full skills checklist (languages, cloud, AI stack), compensation ranges, and how to tell if the role suits you.',
+ tags:['overview','skills','salary','career fit']},
+{cat:'understand', type:'Guide', level:'Beginner', time:'25 min read', must:false,
+ title:'Forward-Deployed Engineer Guide: Role, Skills & Salary',
+ src:'AI Turnpoint',
+ url:'https://aiturnpoint.com/forward-deployed-engineer',
+ desc:'Maps the three structurally different FDE types (AI lab, enterprise SaaS, defense), the current skill stack, tier-by-tier comp — and how to spot a real FDE role vs. a sales-engineer rebrand.',
+ tags:['salary','role types','skills','red flags']},
+{cat:'understand', type:'Podcast', level:'Intermediate', time:'80 min listen', must:false,
+ title:'How Palantir built the ultimate founder factory (Nabeel Qureshi)',
+ src:'Lenny\u2019s Podcast',
+ url:'https://www.lennysnewsletter.com/p/inside-palantir-nabeel-qureshi',
+ desc:'Long-form conversation on the forward-deployed operating model, why it produces founders, and how FDEs earn trust inside giant institutions.',
+ tags:['podcast','palantir','culture','founders']},
+{cat:'understand', type:'Guide', level:'Beginner', time:'25 min read', must:false,
+ title:'How to Become a Forward Deployed Engineer: Full Guide',
+ src:'Espressio',
+ url:'https://espressio.ai/blog/how-to-become-a-forward-deployed-engineer/',
+ desc:'End-to-end becoming-an-FDE guide with a concrete 90-day roadmap and specific portfolio project ideas (support triage, knowledge assistants, CRM agents) that prove readiness.',
+ tags:['roadmap','portfolio','90-day plan']},
+{cat:'understand', type:'Guide', level:'Beginner', time:'20 min read', must:false,
+ title:'How to Become a Forward Deployed Engineer (Roadmap)',
+ src:'SkillScouter',
+ url:'https://skillscouter.com/how-to-become-a-forward-deployed-engineer/',
+ desc:'A positioning-focused roadmap: which backgrounds convert best, how to get customer-facing reps at your current job, and what hiring managers look for on GitHub.',
+ tags:['roadmap','positioning','career switch']},
+
+/* -------- Engineering Core -------- */
+{cat:'skills', type:'Reference', level:'Intermediate', time:'Ongoing', must:true,
+ title:'The System Design Primer',
+ src:'GitHub · Donne Martin',
+ url:'https://github.com/donnemartin/system-design-primer',
+ desc:'The canonical free resource for large-scale system design — caching, queues, sharding, trade-offs. FDE architecture rounds draw directly from this material.',
+ tags:['system design','architecture','interview','free']},
+{cat:'skills', type:'Book', level:'Advanced', time:'Book', must:false,
+ title:'Designing Data-Intensive Applications',
+ src:'Martin Kleppmann',
+ url:'https://dataintensive.net/',
+ desc:'The bible of data systems. FDE work is disproportionately data integration — pipelines, consistency, replication, batch vs. stream — and this book is the deepest foundation available.',
+ tags:['data engineering','systems','book']},
+{cat:'skills', type:'Course', level:'Beginner', time:'~5 hrs', must:true,
+ title:'SQLBolt — Interactive SQL Lessons',
+ src:'SQLBolt',
+ url:'https://sqlbolt.com/',
+ desc:'Learn SQL by doing, in the browser, free. Every FDE guide and job posting lists SQL fluency as non-negotiable; this is the fastest zero-to-competent path.',
+ tags:['sql','interactive','free','hands-on']},
+{cat:'skills', type:'Course', level:'Intermediate', time:'~10 hrs', must:false,
+ title:'Mode SQL Tutorial (incl. Analytics & Window Functions)',
+ src:'Mode Analytics',
+ url:'https://mode.com/sql-tutorial/',
+ desc:'Picks up where basics end: window functions, CTEs, performance tuning, and real analytical SQL — exactly the level FDE data screens test for.',
+ tags:['sql','window functions','analytics','free']},
+{cat:'skills', type:'Book', level:'Beginner', time:'Free online', must:false,
+ title:'Automate the Boring Stuff with Python',
+ src:'Al Sweigart',
+ url:'https://automatetheboringstuff.com/',
+ desc:'Free, practical Python aimed at exactly what junior FDE work looks like: scraping, files, spreadsheets, APIs, and gluing systems together.',
+ tags:['python','automation','free','beginner']},
+{cat:'skills', type:'Course', level:'Beginner', time:'~4 hrs', must:false,
+ title:'Docker Get Started Guide',
+ src:'Docker Docs',
+ url:'https://docs.docker.com/get-started/',
+ desc:'FDEs deploy into customer environments they don\u2019t control — containers are the survival tool. The official guide takes you from zero to building and shipping images.',
+ tags:['docker','containers','deployment','devops']},
+
+/* -------- AI & LLM Stack -------- */
+{cat:'ai', type:'Essay', level:'Intermediate', time:'25 min read', must:true,
+ title:'Building Effective Agents',
+ src:'Anthropic Engineering',
+ url:'https://www.anthropic.com/engineering/building-effective-agents',
+ desc:'The most-cited practical guide to agent architecture: workflows vs. agents, when NOT to add complexity, and composable patterns. Referenced in FDE interviews at AI labs.',
+ tags:['agents','architecture','anthropic','patterns']},
+{cat:'ai', type:'Reference', level:'Intermediate', time:'Ongoing', must:true,
+ title:'OpenAI Cookbook',
+ src:'OpenAI',
+ url:'https://cookbook.openai.com/',
+ desc:'Hundreds of runnable examples for the patterns FDE roles demand: RAG, function/tool calling, structured outputs, evals, embeddings, and orchestration.',
+ tags:['rag','tool calling','evals','code examples','free']},
+{cat:'ai', type:'Course', level:'Beginner', time:'1-2 hrs each', must:false,
+ title:'DeepLearning.AI Short Courses',
+ src:'DeepLearning.AI · Andrew Ng',
+ url:'https://www.deeplearning.ai/short-courses/',
+ desc:'Free, focused 1-2 hour courses on RAG, agents, evals, LangGraph, and function calling — many co-taught with the teams that built the tools.',
+ tags:['rag','agents','evals','free','courses']},
+{cat:'ai', type:'Course', level:'Intermediate', time:'~30 hrs', must:false,
+ title:'Hugging Face Agents Course',
+ src:'Hugging Face',
+ url:'https://huggingface.co/learn/agents-course',
+ desc:'A free, certified, hands-on course: build, evaluate, and deploy agents with smolagents, LangGraph, and LlamaIndex — ends with a real benchmarked project for your portfolio.',
+ tags:['agents','certificate','hands-on','free','portfolio']},
+{cat:'ai', type:'Reference', level:'Intermediate', time:'Ongoing', must:false,
+ title:'LangGraph Documentation',
+ src:'LangChain',
+ url:'https://langchain-ai.github.io/langgraph/',
+ desc:'The orchestration framework named most often in FDE job postings for building stateful, multi-step agent workflows — with tutorials from basic graphs to human-in-the-loop.',
+ tags:['agents','orchestration','langgraph','tooling']},
+{cat:'ai', type:'Reference', level:'Beginner', time:'Ongoing', must:false,
+ title:'Prompt Engineering Guide',
+ src:'DAIR.AI',
+ url:'https://www.promptingguide.ai/',
+ desc:'Comprehensive, free reference on prompting techniques (few-shot, chain-of-thought, ReAct) plus model-specific guides — the vocabulary layer under all LLM app work.',
+ tags:['prompting','llm','free','reference']},
+{cat:'ai', type:'Essay', level:'Advanced', time:'30 min read', must:false,
+ title:'Building a Generative AI Platform',
+ src:'Chip Huyen',
+ url:'https://huyenchip.com/2024/07/25/genai-platform.html',
+ desc:'The full production architecture, layer by layer: context construction, guardrails, routers, caches, observability. This is the system an enterprise FDE is hired to build.',
+ tags:['architecture','production','guardrails','observability']},
+
+/* -------- Customer Craft -------- */
+{cat:'customer', type:'Essay', level:'Start here', time:'15 min read', must:true,
+ title:'Do Things that Don\u2019t Scale',
+ src:'Paul Graham',
+ url:'https://paulgraham.com/ds.html',
+ desc:'The essay behind the FDE philosophy. Manual, unscalable customer work is how you discover what to build — Bob McGrew describes the FDE model as this essay operationalized.',
+ tags:['philosophy','startups','discovery','classic']},
+{cat:'customer', type:'Book', level:'Beginner', time:'Book · ~4 hrs', must:true,
+ title:'The Mom Test',
+ src:'Rob Fitzpatrick',
+ url:'https://www.momtestbook.com/',
+ desc:'The classic on customer discovery: how to ask questions that surface real workflows and pains instead of polite lies. Reads in an afternoon; used verbatim in FDE discovery sessions.',
+ tags:['discovery','interviews','customer conversations','book']},
+{cat:'customer', type:'Book', level:'Intermediate', time:'Book', must:false,
+ title:'The Trusted Advisor',
+ src:'Maister, Green & Galford',
+ url:'https://www.goodreads.com/book/show/873028.The_Trusted_Advisor',
+ desc:'The consulting canon on earning trust with client stakeholders — the trust equation (credibility, reliability, intimacy, self-orientation) maps directly onto embedded FDE work.',
+ tags:['trust','consulting','stakeholders','book']},
+{cat:'customer', type:'Book', level:'Intermediate', time:'Book', must:false,
+ title:'Never Split the Difference',
+ src:'Chris Voss',
+ url:'https://www.goodreads.com/book/show/26156469-never-split-the-difference',
+ desc:'FDEs constantly negotiate scope, priorities, and access with customers. An ex-FBI negotiator\u2019s tactical playbook — mirroring, labeling, calibrated questions — that transfers directly.',
+ tags:['negotiation','communication','book']},
+{cat:'customer', type:'Reference', level:'Intermediate', time:'2 hrs', must:false,
+ title:'MEDDICC / MEDDPICC Framework',
+ src:'MEDDICC',
+ url:'https://meddicc.com/',
+ desc:'The structured discovery framework enterprise FDE teams borrow from sales: metrics, economic buyer, decision criteria, champion. Useful vocabulary for scoping engagements and interviews.',
+ tags:['discovery','enterprise','framework','sales']},
+
+/* -------- Interview Prep -------- */
+{cat:'interview', type:'Course', level:'Intermediate', time:'Structured course', must:true,
+ title:'Forward Deployed Engineering Interview Course',
+ src:'Exponent',
+ url:'https://www.tryexponent.com/courses/forward-deployed-engineering',
+ desc:'The only structured course dedicated to the FDE loop — decomposition cases, practical coding, system design, and the customer-facing rounds — with mock interview footage.',
+ tags:['interview','course','decomposition','mock interviews']},
+{cat:'interview', type:'Guide', level:'Intermediate', time:'25 min read', must:true,
+ title:'FDE Interview Questions: Prep Guide',
+ src:'Perspective AI',
+ url:'https://getperspective.ai/blog/forward-deployed-engineer-interview-questions-2026-prep-guide',
+ desc:'Round-by-round breakdown of real FDE loops at Palantir, OpenAI, and others — with a four-week prep plan weighted toward case studies and stakeholder communication, not LeetCode.',
+ tags:['interview','questions','prep plan','case study']},
+{cat:'interview', type:'Tool', level:'Intermediate', time:'Ongoing', must:false,
+ title:'LeetCode',
+ src:'LeetCode',
+ url:'https://leetcode.com/',
+ desc:'FDE coding rounds are lighter on algorithms than SWE loops, but a floor of medium-level fluency is still assumed. Grind selectively: arrays, strings, hash maps, and SQL problems.',
+ tags:['coding','practice','sql','algorithms']},
+{cat:'interview', type:'Tool', level:'Intermediate', time:'Per session', must:false,
+ title:'interviewing.io — Anonymous Mock Interviews',
+ src:'interviewing.io',
+ url:'https://interviewing.io/',
+ desc:'Practice live technical interviews with real engineers from top companies. The customer-facing FDE rounds especially reward out-loud practice you can\u2019t get from reading.',
+ tags:['mock interviews','practice','feedback']},
+{cat:'interview', type:'Reference', level:'Beginner', time:'30 min read', must:false,
+ title:'Palantir Careers — FDE Role Pages',
+ src:'Palantir',
+ url:'https://www.palantir.com/careers/',
+ desc:'Read the source: Palantir\u2019s own descriptions of Forward Deployed Software Engineer roles define the archetype. Mine the language for what "impact" and "ownership" mean in interviews.',
+ tags:['palantir','job descriptions','research']},
+
+/* -------- Jobs & Market -------- */
+{cat:'jobs', type:'Jobs', level:'Start here', time:'Ongoing', must:true,
+ title:'Y Combinator Jobs — search "Forward Deployed"',
+ src:'Y Combinator',
+ url:'https://www.ycombinator.com/jobs',
+ desc:'Over a hundred YC startups now hire for FDE titles — up from zero three years ago. The densest concentration of early-stage FDE openings anywhere.',
+ tags:['jobs','startups','yc','search']},
+{cat:'jobs', type:'Jobs', level:'Beginner', time:'Ongoing', must:false,
+ title:'LinkedIn — "Forward Deployed Engineer" job search',
+ src:'LinkedIn',
+ url:'https://www.linkedin.com/jobs/search/?keywords=forward%20deployed%20engineer',
+ desc:'Pre-built search for FDE roles across the whole market. Also try "deployed engineer", "applied AI engineer", and "solutions engineer (technical)" — titles are inconsistent.',
+ tags:['jobs','search','market']},
+{cat:'jobs', type:'Jobs', level:'Beginner', time:'Ongoing', must:false,
+ title:'OpenAI Careers',
+ src:'OpenAI',
+ url:'https://openai.com/careers/',
+ desc:'OpenAI runs one of the largest FDE organizations among AI labs, deploying engineers into enterprise customers to build on top of its models.',
+ tags:['jobs','ai lab','openai']},
+{cat:'jobs', type:'Jobs', level:'Beginner', time:'Ongoing', must:false,
+ title:'Anthropic Careers',
+ src:'Anthropic',
+ url:'https://www.anthropic.com/careers',
+ desc:'Anthropic hires Applied AI / Forward Deployed engineers to embed with customers building on Claude — loops emphasize practical LLM engineering plus communication.',
+ tags:['jobs','ai lab','anthropic']},
+{cat:'jobs', type:'Tool', level:'Beginner', time:'Ongoing', must:false,
+ title:'Levels.fyi — Compensation Data',
+ src:'Levels.fyi',
+ url:'https://www.levels.fyi/',
+ desc:'Verify what FDE roles actually pay before you negotiate. Palantir FDSE bands are listed directly; for startups, benchmark against equivalent SWE levels.',
+ tags:['salary','negotiation','data']},
+{cat:'jobs', type:'Tool', level:'Intermediate', time:'Ongoing', must:false,
+ title:'Hacker News — FDE discussion archive',
+ src:'HN Algolia Search',
+ url:'https://hn.algolia.com/?q=forward+deployed+engineer',
+ desc:'Unfiltered practitioner debate: search every HN thread about the FDE role — ex-Palantir engineers, hiring managers, and skeptics arguing about what the job is really like.',
+ tags:['community','discussion','unfiltered']},
+];
+
+const COMPANIES = [
+  ['Palantir','https://www.palantir.com/careers/'],
+  ['OpenAI','https://openai.com/careers/'],
+  ['Anthropic','https://www.anthropic.com/careers'],
+  ['Anduril','https://www.anduril.com/careers/'],
+  ['Scale AI','https://scale.com/careers'],
+  ['Sierra','https://sierra.ai/careers'],
+  ['Databricks','https://www.databricks.com/company/careers'],
+  ['Snowflake','https://careers.snowflake.com/'],
+  ['Ramp','https://ramp.com/careers'],
+  ['Retool','https://retool.com/careers'],
+  ['Glean','https://www.glean.com/careers'],
+  ['Mistral AI','https://mistral.ai/careers'],
+  ['Cohere','https://cohere.com/careers'],
+  ['xAI','https://x.ai/careers'],
+  ['YC startups (100+)','https://www.ycombinator.com/jobs'],
+];
+
+/* =============== STATE =============== */
+const store = {
+  get saved(){ try{return JSON.parse(localStorage.getItem('fde_saved')||'[]')}catch{return[]} },
+  set saved(v){ localStorage.setItem('fde_saved',JSON.stringify(v)) },
+  get done(){ try{return JSON.parse(localStorage.getItem('fde_done')||'[]')}catch{return[]} },
+  set done(v){ localStorage.setItem('fde_done',JSON.stringify(v)) },
+};
+R.forEach((r,i)=>r.id='r'+i);
+let state = { q:'', cat:'all', view:'all' };
+
+/* =============== HELPERS =============== */
+const $=s=>document.querySelector(s);
+const catOf=id=>CATS.find(c=>c.id===id);
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+function matches(r){
+  if(state.cat!=='all' && r.cat!==state.cat) return false;
+  if(state.view==='must' && !r.must) return false;
+  if(state.view==='saved' && !store.saved.includes(r.id)) return false;
+  if(state.view==='todo' && store.done.includes(r.id)) return false;
+  if(state.q){
+    const hay=(r.title+' '+r.src+' '+r.desc+' '+r.tags.join(' ')+' '+r.type+' '+r.level+' '+catOf(r.cat).name).toLowerCase();
+    return state.q.toLowerCase().split(/\s+/).every(w=>hay.includes(w));
+  }
+  return true;
+}
+
+/* =============== RENDER =============== */
+function renderPath(){
+  const steps=[
+    ['01','understand','Understand the role','Read the origin stories and honest accounts. Decide if embedded, high-ambiguity work is for you.'],
+    ['02','skills','Build the engineering core','Python, serious SQL, APIs, containers, system design. The floor is a real software engineer.'],
+    ['03','ai','Learn the AI stack','RAG, tool calling, agents, evals. This is what separates 2026 FDE hires from generic SWEs.'],
+    ['04','customer','Develop customer craft','Discovery, trust, negotiation. The half of the job most engineers never train.'],
+    ['05','interview','Run the interview loop','Decomposition cases, practical coding, stakeholder rounds. Practice out loud, on a timer.'],
+    ['06','jobs','Land the job','Search beyond the title, benchmark comp, and target companies that ship FDEs to real customers.'],
+  ];
+  $('#pathGrid').innerHTML=steps.map(([n,cat,t,d])=>{
+    const c=catOf(cat);
+    return `<button class="path-step" style="--ac:${c.ac}" data-goto="${cat}">
+      <span class="n">STAGE ${n} · ${R.filter(r=>r.cat===cat).length} RESOURCES</span>
+      <h3>${t}</h3><p>${d}</p><span class="go">Browse stage</span>
+    </button>`;
+  }).join('');
+}
+
+function renderCats(){
+  const all=`<button class="cat-chip ${state.cat==='all'?'on':''}" data-cat="all" style="--ac:#2DD4BF">All <span class="cnt">${R.length}</span></button>`;
+  $('#catRow').innerHTML=all+CATS.map(c=>
+    `<button class="cat-chip ${state.cat===c.id?'on':''}" data-cat="${c.id}" style="--ac:${c.ac}">${c.name} <span class="cnt">${R.filter(r=>r.cat===c.id).length}</span></button>`
+  ).join('');
+}
+
+function renderGrid(){
+  const list=R.filter(matches);
+  const saved=store.saved, done=store.done;
+  $('#grid').innerHTML=list.length?list.map(r=>{
+    const c=catOf(r.cat);
+    return `<article class="card ${done.includes(r.id)?'is-done':''}" style="--ac:${c.ac}">
+      <div class="top">
+        <div class="badges">
+          ${r.must?'<span class="badge must">★ Must</span>':''}
+          <span class="badge type">${r.type}</span>
+          <span class="badge lvl">${r.level}</span>
+        </div>
+        <div class="card-actions">
+          <button class="icon-btn save ${saved.includes(r.id)?'act':''}" data-save="${r.id}" title="Save to reading list" aria-label="Save to reading list">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L21 9.27l-4.8 4.4L17.8 21 12 17.5 6.2 21l1.6-7.33L3 9.27l6.1-1.01L12 2z"/></svg>
+          </button>
+          <button class="icon-btn done ${done.includes(r.id)?'act':''}" data-done="${r.id}" title="Mark as done" aria-label="Mark as done">
+            <svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>
+          </button>
+        </div>
+      </div>
+      <h3><a href="${r.url}" target="_blank" rel="noopener">${esc(r.title)}</a></h3>
+      <div class="src">${esc(r.src)}</div>
+      <p>${esc(r.desc)}</p>
+      <div class="foot"><span class="time">${r.time}</span><span class="open">open</span></div>
+    </article>`;
+  }).join('')
+  :`<div class="empty"><span class="big">∅</span>No resources match. Try clearing the search or filters.</div>`;
+
+  const parts=[];
+  if(state.cat!=='all')parts.push(catOf(state.cat).name);
+  if(state.view!=='all')parts.push({must:'must-reads',saved:'saved',todo:'to do'}[state.view]);
+  if(state.q)parts.push(`"${state.q}"`);
+  $('#resultCount').innerHTML=`SHOWING <b>${list.length}</b> OF ${R.length}${parts.length?' · '+esc(parts.join(' · ')).toUpperCase():''}`;
+  $('#clearBtn').hidden=!(state.q||state.cat!=='all'||state.view!=='all');
+}
+
+function renderProgress(){
+  const d=store.done.length;
+  $('#progText').textContent=`${d}/${R.length} done`;
+  $('#progBar').style.width=(d/R.length*100)+'%';
+  $('#savedCnt').textContent=store.saved.length;
+}
+
+function renderCompanies(){
+  $('#coGrid').innerHTML=COMPANIES.map(([n,u])=>
+    `<a class="co" href="${u}" target="_blank" rel="noopener"><span class="d"></span>${n}</a>`).join('');
+}
+
+function renderAll(){ renderCats(); renderGrid(); renderProgress(); }
+
+/* =============== EVENTS =============== */
+$('#search').addEventListener('input',e=>{ state.q=e.target.value.trim(); renderGrid(); });
+
+$('#viewSeg').addEventListener('click',e=>{
+  const b=e.target.closest('button[data-view]'); if(!b)return;
+  state.view=b.dataset.view;
+  document.querySelectorAll('#viewSeg button').forEach(x=>x.classList.toggle('on',x===b));
+  renderGrid();
+});
+
+$('#catRow').addEventListener('click',e=>{
+  const b=e.target.closest('button[data-cat]'); if(!b)return;
+  state.cat=b.dataset.cat; renderCats(); renderGrid();
+});
+
+$('#pathGrid').addEventListener('click',e=>{
+  const b=e.target.closest('[data-goto]'); if(!b)return;
+  state.cat=b.dataset.goto; renderCats(); renderGrid();
+  document.getElementById('catalog').scrollIntoView({behavior:'smooth'});
+});
+
+$('#grid').addEventListener('click',e=>{
+  const s=e.target.closest('[data-save]'), d=e.target.closest('[data-done]');
+  if(s){
+    const id=s.dataset.save, arr=store.saved;
+    store.saved=arr.includes(id)?arr.filter(x=>x!==id):[...arr,id];
+    renderGrid(); renderProgress();
+  }else if(d){
+    const id=d.dataset.done, arr=store.done;
+    store.done=arr.includes(id)?arr.filter(x=>x!==id):[...arr,id];
+    renderGrid(); renderProgress();
+  }
+});
+
+$('#clearBtn').addEventListener('click',()=>{
+  state={q:'',cat:'all',view:'all'};
+  $('#search').value='';
+  document.querySelectorAll('#viewSeg button').forEach(x=>x.classList.toggle('on',x.dataset.view==='all'));
+  renderAll();
+});
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='/' && document.activeElement!==$('#search')){ e.preventDefault(); $('#search').focus(); }
+  if(e.key==='Escape' && document.activeElement===$('#search')){ $('#search').blur(); }
+});
+
+/* =============== INIT =============== */
+$('#statTotal').textContent=R.length;
+$('#statMust').textContent=R.filter(r=>r.must).length;
+renderPath(); renderCompanies(); renderAll();
+
+const ro=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');ro.unobserve(x.target)}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>
